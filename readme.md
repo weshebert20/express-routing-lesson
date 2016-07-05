@@ -1,5 +1,4 @@
-# Robots Righting HTML
-## Intro to express and express-routing
+# Modular Express
 
 ### Objectives
 *After this lesson, students will be able to:*
@@ -8,7 +7,6 @@
   - We'll use body-parser to parse form submissions as JSON
 - Write out the skeleton of a RESTful API
 - Identify the HTTP verbs we'll be using for an API
-- Use Nodemon to 
 
 ### Preparation
 *Before this lesson, students should already be able to:*
@@ -33,6 +31,7 @@ npm is Node's package manager. It's used to manage dependencies. Think of it as 
 Express.js is a simple web framework for Node.js. It provides many features for you to start using right away (Routing, Sessions) that you would have to do yourself if using vanilla Node.
 
 ## Adding Routes to our app 
+[Time Check]: # (1:05) 
 
 Let's add some routes. This should all be familiar but let's go through it.
 
@@ -67,33 +66,10 @@ app.listen(port);
 
 This app works but as we keep adding more endpoint, we'll end up creating more routes
 
-## Node Modules
+## Creating a controllers module 
+[Time Check]: # (1:15) 
 
-One way we can start to break up Node apps, including Express apps, is to use modules. If there is some code that makes sense to 
-try to keep encapsulated, like the information around routes, we can use group that code into a single file to help focus on what 
-that specific code does.
-
-To use modules, we can write code that solves one problem and then export a single object to the rest of the program. Often this 
-will be a constructor for an ADT but it might be just a plan JavaScript object that includes a couple of related methods. This 
-sounds limiting but it works well in practice. The actual code to export an object is
-
-```javascript
-module.exports = myObjectToExport
-```
-
-To use a module we assign a variable to a ``require()`` statement. We've already used this multiple times to add extra 
-functionality to our apps like ``var express = require('express')``. When we want to run our own module we just require the 
-relative path to our file. We can also exclude the ``.js`` file extension as well.
-
-If we have some file myRoutes.js that contains the myRoutes module. myRoutes.js is in the same directory as our app.js file. How would we use the myRoutes module in the app.js file?
-<details>
-```javascript
-var myRoutes = require('./myRoutes')
-```
-</details>
-
-## Creating a controller 
-Lets create a controller or a group of related routes. First we'll take our routes from the learnyounode app we started with. 
+Lets create a module for our controllersa and related routes. First we'll take our routes from the learnyounode app we started with. 
 
 What are the steps to refactor our routes to a new file:
 1. Create the new file
@@ -127,6 +103,7 @@ just by using ``module.exports = router``.
 Inside of our main ``app.js`` we need to make sure our app uses to the router. This is easy ``app.use('\api', myRouter)``
 
 ## Restful Routing - Intro
+[Time Check]: # (1:35)
 
 We are going to use the RESTful standard to build our web apps. REST stands for REpresentational State Transfer and is an organizational standard for web architecture designed "to induce performance, scalability, simplicity, modifiability, visibility, portability, and reliability," in the words of its author, Roy Thomas Fielding.
 
@@ -182,8 +159,31 @@ PUT    /cars/:id
 DELETE /cars/:id
 
 ```
+## Query Params
+[Time Check]: # (1:45) 
+
+Generally, you don't want to cram everything into a route. Just imagine when there are multiple parameters in route. Or maybe we don't
+care about getting the order of the parameters correct. Luckily, there are **query parameters** you can include with each request.
+
+Let's see query params in action. Go to [https://google.com/search?q=kittens&tbm=isch](https://google.com/search?q=kittens&tbm=isch)
+
+* `?` denotes the beginning of the query parameters
+* `=` indicates an assignment; anything to the left is the key, while the right represents the value
+* `&` allows for the input of multiple parameters, separating each
+
+Let's add our first route to practice query params.
+
+``` javascript
+route.get("/parsetime", function (req, res) {
+    var time = new Date(req.query.iso);
+    
+});
+```
+
+Reset your server and go to [localhost:3000/thank?name=jane](localhost:3000/thank?name=jane). Note how we can now define parameters in the url after a `?`.
 
 ## BodyParser and handling params/JSON
+[Time Check]: # (1:45) 
 
 When data is sent to the server via a POST request (from a form, for example), the content of the request is passed as a string, 
 but we want to access it as if it was a JavaScript object:
@@ -237,23 +237,6 @@ working with request bodies.
 
 Now the app will decode all JSON received in the body of a client request.
 
-## Nodemon 
-When we start developing Express applications, there is a similar cycle to developing browser apps. You make a change and then need 
-to restart the app. One way to make your development cycle run faster is to use nodemon. This package automatically restarts your 
-Node app when you save a file so you don't have to.
-
-To use nodemon you need to first install it, ``npm install -g nodemon``. This will install a global nodemon
-
-## Independent Practice
-
-In the new file, try to create the 7 Restful Routes for the resource "car". Every method should return some text saying the HTTP Verb, which URI has been used to do the request and which REST action it corresponds to.
-
-Example, for a POST request to `/cars` the text sent back should be:
-
-```
-POST request to /cars, this is the CREATE action
-```
-
 ## Pratical Use
 
 You'll use Node modules in every Node or Express app you'll make. Splitting up your code into multiple files helps to organize your 
@@ -263,6 +246,24 @@ Pulling the routing info into another file is common practice. This can be the s
 
 body-parser is also the first example of the most common Express pattern of creating middle-ware or code that makes an adjustment 
 to the request and then passes that adjusted request to the rest of the app to use.
+
+## Extras
+### Nodemon
+When we start developing Express applications, there is a similar cycle to developing browser apps. You make a change and then need 
+to restart the app. One way to make your development cycle run faster is to use nodemon. This package automatically restarts your 
+Node app when you save a file so you don't have to.
+
+To use nodemon you need to first install it, ``npm install -g nodemon``. This will install a global nodemon
+
+### Independent Practice
+
+In the new file, try to create the 7 Restful Routes for the resource "car". Every method should return some text saying the HTTP Verb, which URI has been used to do the request and which REST action it corresponds to.
+
+Example, for a POST request to `/cars` the text sent back should be:
+
+```
+POST request to /cars, this is the CREATE action
+```
 
 ## Conclusion
 A framework can be overwhelming at the start, after a couple of days you will see how it makes your life easier.  We will work more on how to make RESTful controllers, this is just an introduction.
