@@ -175,8 +175,14 @@ Let's add our first route to practice query params.
 
 ``` javascript
 route.get("/parsetime", function (req, res) {
-    var time = new Date(req.query.iso);
-    
+  var time = new Date(req.query.iso);
+  result = {
+    hour: time.getHours(),  
+    minute: time.getMinutes(),  
+    second: time.getSeconds()  
+  }  
+
+  res.send(result);
 });
 ```
 
