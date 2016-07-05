@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/api/parsetime', function(req, res) {
+router.get('/parsetime', function(req, res) {
   time = new Date();
   result = {
     hour: time.getHours(),  
@@ -12,7 +12,7 @@ router.get('/api/parsetime', function(req, res) {
   res.send(result);
 });
 
-router.get('/api/unixtime', function(req, res) {
+router.get('/unixtime', function(req, res) {
   time = new Date();
   
   res.send({ unixtime : time.getTime() });

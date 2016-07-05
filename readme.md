@@ -26,7 +26,7 @@ Node is a low-level, non-blocking, event-driven platform which allows you to wri
 
 * What is npm?
 
-npm is Node's package manager. It's used to manage dependencies. Think of it like RubyGems.
+npm is Node's package manager. It's used to manage dependencies. Think of it as a better way to include files in your HTML head.
 
 * What is express.js?
 
@@ -75,9 +75,56 @@ that specific code does.
 
 To use modules, we can write code that solves one problem and then export a single object to the rest of the program. Often this 
 will be a constructor for an ADT but it might be just a plan JavaScript object that includes a couple of related methods. This 
-sounds limiting but it
+sounds limiting but it works well in practice. The actual code to export an object is
+
+```javascript
+module.exports = myObjectToExport
+```
+
+To use a module we assign a variable to a ``require()`` statement. We've already used this multiple times to add extra 
+functionality to our apps like ``var express = require('express')``. When we want to run our own module we just require the 
+relative path to our file. We can also exclude the ``.js`` file extension as well.
+
+If we have some file myRoutes.js that contains the myRoutes module. myRoutes.js is in the same directory as our app.js file. How would we use the myRoutes module in the app.js file?
+<details>
+```javascript
+var myRoutes = require('./myRoutes')
+```
+</details>
 
 ## Creating a controller 
+Lets create a controller or a group of related routes. First we'll take our routes from the learnyounode app we started with. 
+
+What are the steps to refactor our routes to a new file:
+1. Create the new file
+2. Move the routes(.get, .post, etc) to the
+3. If all the routes share a portion of the endpoint path, e.g. (cars, tacos, candies), remove that path name but remember it
+4. Use the Router constructor
+5. Export the router
+6. Require the router from the file that runs the main app
+7. use the router with any path prefix you removed in step 3
+
+Some more information on some of steps
+
+### Use the Router constructor
+Starting in Express 4.0, Express includes the ``express.Router()`` constructor which creates a router, our a mini app, that we 
+can use for organization. We can treat this router as a copy of app for creating routes. In particular we can change our ``app.get``
+to ``router.get``
+
+```javascript
+var router = express.Router()
+
+router.get('/api/parsetime'){
+  // my implementation
+} 
+```
+
+### Export the router
+In the ``myRouter.js`` we need to let Node that the router is the important information to return from this module. This is done 
+just by using ``module.exports = router``.
+
+### Use the router
+Inside of our main ``app.js`` we need to make sure our app uses to the router. This is easy ``app.use('\api', myRouter)``
 
 ## Restful Routing - Intro
 
@@ -195,8 +242,7 @@ When we start developing Express applications, there is a similar cycle to devel
 to restart the app. One way to make your development cycle run faster is to use nodemon. This package automatically restarts your 
 Node app when you save a file so you don't have to.
 
-To use nodemon you need to first install it, ``npm install --save-dev nodemon``. This
-
+To use nodemon you need to first install it, ``npm install -g nodemon``. This will install a global nodemon
 
 ## Independent Practice
 
@@ -213,7 +259,7 @@ POST request to /cars, this is the CREATE action
 You'll use Node modules in every Node or Express app you'll make. Splitting up your code into multiple files helps to organize your 
 code and package your code for use by other developers.
 
-Pulling the routing info into another file is common practice. This can be the start of the Model-View-Control(MVC). 
+Pulling the routing info into another file is common practice. This can be the start of the Model-View-Control(MVC) architecture. 
 
 body-parser is also the first example of the most common Express pattern of creating middle-ware or code that makes an adjustment 
 to the request and then passes that adjusted request to the rest of the app to use.
