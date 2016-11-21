@@ -80,6 +80,7 @@ This app works but as we keep adding more endpoints, we'll end up creating more 
 Lets create a module for our controllers and related routes. First we'll take our routes from the app we started with. 
 
 Here are the steps to refactor our routes to a new file:
+
 1. Create the new file
 2. Move the routes(.get, .post, etc) to the new file
 3. If all the routes share a portion of the endpoint path, e.g. (cars, tacos, candies), remove that path name but remember it
