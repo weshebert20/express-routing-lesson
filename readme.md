@@ -236,6 +236,7 @@ For this we will use `body-parser`.
 First add the package to your `package.json` dependencies, ``npm install --save body-parser``
 
 When we want to use the body-parser middleware we need to do two things:
+
 1. Include the body-parser module, ``require('body-parser')``
 2. Tell the application we want to use the body-parser middleware ``app.use(bodyParser.json())``
 
