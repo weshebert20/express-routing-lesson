@@ -83,10 +83,12 @@ Here are the steps to refactor our routes to a new file:
 
 1. Create the new file
 2. Move the routes(.get, .post, etc) to the new file
-3. If all the routes share a portion of the endpoint path, e.g. (cars, tacos, candies), remove that path name but remember it
+<!--Good stop point-->
 4. Use the Router constructor
 5. Export the router
 6. Require the router from the file that runs the main app
+<!--Good stop point-->
+3. If all the routes share a portion of the endpoint path, e.g. (cars, tacos, candies), remove that path name but remember it
 7. `app.use` the router with the path prefix you removed in step 3
 
 More information on some of the steps below:
@@ -167,16 +169,18 @@ DELETE /cars/:id
 
 ```
 
+<!-- Implement just the index route with a console.log saying "This is GET request to /cars, the is the INDEX route" -->
+
 ### Independent Practice
 
 <!--11:45 25 minutes -->
 
-In the new file, try to create the 7 Restful Routes for the resource "bicycle". Every method should return some text saying the HTTP Verb, which URI has been used to do the request and which REST action it corresponds to.
+In the new file, try to create the 7 Restful Routes for the resource "bicycle". Every method should return some text saying the HTTP Verb, which URI has been used to do the request and which RESTful route it corresponds to.
 
 Example, for a POST request to `/bicycles` the text sent back should be:
 
 ```
-POST request to /bicycles, this is the CREATE action
+POST request to /bicycles, this is the CREATE route
 ```
 
 #### Bonus
