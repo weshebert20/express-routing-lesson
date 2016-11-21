@@ -171,12 +171,12 @@ DELETE /cars/:id
 
 <!--11:45 25 minutes -->
 
-In the new file, try to create the 7 Restful Routes for the resource "car". Every method should return some text saying the HTTP Verb, which URI has been used to do the request and which REST action it corresponds to.
+In the new file, try to create the 7 Restful Routes for the resource "bicycle". Every method should return some text saying the HTTP Verb, which URI has been used to do the request and which REST action it corresponds to.
 
-Example, for a POST request to `/cars` the text sent back should be:
+Example, for a POST request to `/bicycles` the text sent back should be:
 
 ```
-POST request to /cars, this is the CREATE action
+POST request to /bicycles, this is the CREATE action
 ```
 
 #### Bonus
