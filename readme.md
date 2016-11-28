@@ -1,5 +1,7 @@
 # Modular Express
 
+<!--Started this around 11:20 -->
+
 <!--11:00 5 minutes -->
 <!-- Hook: So for the last couple days we have been doing a delicate dance between the front end and the back end.  Raise your hand if you're ready to put that final puzzle piece in place.-->
 
@@ -77,7 +79,7 @@ app.listen(port);
 
 This app works but as we keep adding more endpoints, we'll end up creating more routes.  This can get messy pretty quickly.
 
-## Creating a controllers module 
+## Creating a routes module 
 <!-- 11:15 20 minutes -->
 <!-- Catch-up -->
 
@@ -173,6 +175,8 @@ DELETE /cars/:id
 
 ```
 
+<!--12:30 actually-->
+
 <!-- Implement just the index route with a console.log saying "This is GET request to /cars, the is the INDEX route" -->
 
 ### Independent Practice
@@ -190,17 +194,6 @@ POST request to /bicycles, this is the CREATE route
 #### Bonus
 
 Once you get all 7 routes printing their path and method, see if you can return JSON for a couple cars with the Index route.
-
-## Query Params
-<!-- 12:10 5 minutes --> 
-
-Generally, you don't want to cram everything into a route. If we want to pass specific variables in a route, we can use **query parameters** with each request.
-
-Let's see query params in action. Go to [https://google.com/search?q=kittens&tbm=isch](https://google.com/search?q=kittens&tbm=isch)
-
-* `?` denotes the beginning of the query parameters
-* `=` indicates an assignment; anything to the left is the key, while the right represents the value
-* `&` allows for the input of multiple parameters, separating each
 
 ## BodyParser and handling params/JSON
 <!-- 12:15 10 minutes -->
