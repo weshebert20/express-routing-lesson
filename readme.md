@@ -1,7 +1,7 @@
 # Modular Express
 
 <!--11:00 5 minutes -->
-<!-- Hook: Iono -->
+<!-- Hook: So for the last couple days we have been doing a delicate dance between the front end and the back end.  Raise your hand if you're ready to put that final puzzle piece in place.-->
 
 ### Objectives
 *After this lesson, students will be able to:*
@@ -17,9 +17,11 @@
 - **Explain** HTTP requests/responses
 - **Write** and **explain** basic javascript
 
-## Recapping Node and Intro to Express - Intro (5 mins)
+## Recapping Node and Intro to Express - Intro
 
 #### First let's review
+
+<!--One dev per question -->
 
 * What is Node?
 
@@ -55,7 +57,7 @@ app.get('/api/parsetime', function(req, res) {
     hour: time.getHours(),  
     minute: time.getMinutes(),  
     second: time.getSeconds()  
-  }  
+  };
 
   res.send(result);
 });
@@ -71,13 +73,15 @@ app.listen(port);
 
 [CFU]: # (What does this app do?) 
 
+<!--Once a dev answers the question, go into the folder, npm install, and go to localhost:3000 to test, then turn over to devs -->
+
 This app works but as we keep adding more endpoints, we'll end up creating more routes.  This can get messy pretty quickly.
 
 ## Creating a controllers module 
 <!-- 11:15 20 minutes -->
 <!-- Catch-up -->
 
-Lets create a module for our controllers and related routes. First we'll take our routes from the app we started with. 
+Lets create a module for our controllers and related routes. First, we'll take our routes from the app we started with. 
 
 Here are the steps to refactor our routes to a new file:
 
@@ -109,14 +113,14 @@ router.get('/api/parsetime'){
 In the ``myRouter.js`` file, we need to let Node know that we want to return the router from this module, so we can use it in other places. This is done by using ``module.exports = router``.
 
 ### Use the router
-Inside of our main ``app.js`` we need to make sure our app uses the router. This is done by using ``app.use('\api', myRouter)``.
+Inside of our main ``app.js`` we need to make sure our app uses the router. This is done by using ``app.use('/api', myRouter)``.
 
-## Restful Routing - Intro
+## Restful Routing - Back End
 <!-- 11:35 10 minutes -->
 
 We are going to use the RESTful standard to build our web apps. REST stands for REpresentational State Transfer and is an organizational standard for web architecture designed "to induce performance, scalability, simplicity, modifiability, visibility, portability, and reliability," in the words of its author, Roy Thomas Fielding.
 
-So far, we've covered how to handle GET requests, but we can create callbacks for all types of requests. For example, if we want to create a restful controller for the resource cars, it would look like this:
+So far, we've covered how to handle GET requests, but we can create callbacks for all types of requests. For example, if we want to create a  RESTful controller for the resource cars, it would look like this:
 
 ```javascript
 
