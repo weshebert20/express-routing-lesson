@@ -27,19 +27,19 @@
 
 * What is Node?
 
-Node is a low-level, non-blocking, event-driven platform which allows you to write JavaScript on the server-side.
+**Node** is a low-level, non-blocking, event-driven platform which allows you to write JavaScript on the server-side.
 
 * What is npm?
 
-npm is Node's package manager. It's used to manage dependencies. Think of it as a better way to include files in your HTML head.
+**npm** is Node's package manager. It's used to manage dependencies. Think of it as a better way to include files in your HTML head.
 
 * What is express.js?
 
-Express.js is a simple web framework for Node.js. It provides many features for you to start using right away (Routing, Sessions) that you would have to do yourself if using vanilla Node.
+**Express.js** is a simple web framework for Node.js. It provides many features for you to start using right away (Routing, Sessions) that you would have to do yourself if using vanilla Node.
 
 * What is a route?
 
-A route is a combination of a path (e.g. `/about`) and HTTP verb (e.g. `GET`) that allows a server to direct (route) a certain request to a certain response.
+A **route** is a combination of a path (e.g. `/about`) and HTTP verb (e.g. `GET`) that allows a server to direct (route) a certain request to a certain response.
 
 ## Adding Routes to our app 
 <!-- 11:05 10 minutes --> 
@@ -83,18 +83,18 @@ This app works but as we keep adding more endpoints, we'll end up creating more 
 <!-- 11:15 20 minutes -->
 <!-- Catch-up -->
 
-Lets create a module for our controllers and related routes. First, we'll take our routes from the app we started with. 
+Let's create a module for our controllers and related routes. First, we'll take our routes from the app we started with. 
 
 Here are the steps to refactor our routes to a new file:
 
 1. Create the new file
 2. Move the routes(.get, .post, etc) to the new file
 <!--Good stop point-->
-4. Use the Router constructor
-5. Export the router
-6. Require the router from the file that runs the main app
+3. Use the Router constructor
+4. Export the router
+5. Require the router from the file that runs the main app
 <!--Good stop point-->
-3. If all the routes share a portion of the endpoint path, e.g. (cars, tacos, candies), remove that path name but remember it
+6. If all the routes share a portion of the endpoint path, e.g. (cars, tacos, candies), remove that path name but remember it
 7. `app.use` the router with the path prefix you removed in step 3
 
 More information on some of the steps below:
@@ -177,13 +177,13 @@ DELETE /cars/:id
 
 <!--12:30 actually-->
 
-<!-- Implement just the index route with a console.log saying "This is GET request to /cars, the is the INDEX route" -->
+<!-- Implement just the index route with a res.send saying "This is GET request to /cars, the is the INDEX route" -->
 
 ### Independent Practice
 
 <!--11:45 25 minutes -->
 
-In the new file, try to create the 7 Restful Routes for the resource "bicycle". Every method should return some text saying the HTTP Verb, which URI has been used to do the request and which RESTful route it corresponds to.
+Create a new file called `bikeRouter.js`.  Inside that file, create the 7 Restful Routes for the resource "bicycle". Every method should `res.send` some text saying the HTTP Verb, which URI has been used to do the request and which RESTful route it corresponds to.
 
 Example, for a POST request to `/bicycles` the text sent back should be:
 
@@ -234,7 +234,7 @@ For this we will use `body-parser`.
 
 ## Configure your app to use body-parser
 
-First add the package to your `package.json` dependencies, ``npm install --save body-parser``
+First, add the package to your `package.json` dependencies, ``npm install --save body-parser``
 
 When we want to use the body-parser middleware we need to do two things:
 
