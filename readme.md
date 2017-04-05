@@ -1,5 +1,6 @@
 # Modular Express
 
+<!--WDI3 11:16 -->
 <!--Started this around 11:20 -->
 
 <!--11:00 5 minutes -->
@@ -42,6 +43,7 @@
 A **route** is a combination of a path (e.g. `/about`) and HTTP verb (e.g. `GET`) that allows a server to direct (route) a certain request to a certain response.
 
 ## Adding Routes to our app 
+<!-- WDI3 11:20 -->
 <!-- 11:05 10 minutes --> 
 
 Let's add some routes. This should all be familiar but let's go through it.
@@ -80,6 +82,7 @@ app.listen(port);
 This app works but as we keep adding more endpoints, we'll end up creating more routes.  This can get messy pretty quickly.
 
 ## Creating a routes module 
+<!--11:31 after running through all these steps myself -->
 <!-- 11:15 20 minutes -->
 <!-- Catch-up -->
 
@@ -175,9 +178,9 @@ DELETE /cars/:id
 
 ```
 
-<!--12:30 actually-->
+<!--12:30 actually WDI2-->
 
-<!-- Implement just the index route with a res.send saying "This is GET request to /cars, the is the INDEX route" -->
+<!-- Implement all routes with a res.send saying "This is GET request to /cars, the is the INDEX route" etc. -->
 
 ### Independent Practice
 
@@ -195,6 +198,8 @@ POST request to /bicycles, this is the CREATE route
 
 Once you get all 7 routes printing their path and method, see if you can return JSON for a couple cars with the Index route.
 
+<!--WDI3 12:28 -->
+<!--Took 10 minutes to talk about rest below WDI3-->
 ## BodyParser and handling params/JSON
 <!-- 12:15 10 minutes -->
 
