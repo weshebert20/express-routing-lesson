@@ -198,6 +198,8 @@ POST request to /bicycles, this is the CREATE route
 
 Once you get all 7 routes printing their path and method, see if you can return JSON for a couple cars with the Index route.
 
+<!--This should not be here, it should be a mini-intro to the lab, and there NEEDS to be a real application, not just high-fallutin car talk -->
+
 <!--WDI3 12:28 -->
 <!--Took 10 minutes to talk about rest below WDI3-->
 ## BodyParser and handling params/JSON
