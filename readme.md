@@ -240,6 +240,7 @@ To use nodemon you need to first install it, ``npm install -g nodemon``. This wi
 
 ## Conclusion
 
+<!--WDI4 2:17 then on to HW -->
 <!--12:25 5 minutes -->
 
 A framework can be overwhelming at the start, but after a couple of days you will see how it makes your life easier.  We will work more on how to make RESTful controllers, this is just an introduction.
