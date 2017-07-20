@@ -209,42 +209,13 @@ Once you get all 7 routes printing their path and method, see if you can return 
 
 <!--This should not be here, it should be a mini-intro to the lab, and there NEEDS to be a real application, not just high-fallutin car talk -->
 
+<!--WDI4 1:56 -->
 <!--WDI3 12:28 -->
 <!--Took 10 minutes to talk about rest below WDI3-->
 ## BodyParser and handling params/JSON
 <!-- 12:15 10 minutes -->
 
-When data is sent to the server via a POST request (from a form, for example), the content of the request is passed as a string, but we want to access it as if it were a JavaScript object:
-
-If we have a form like this:
-
-```html
-    <form>
-      <input type="text" name="car[make]">
-      <input type="text" name="car[model]">
-    </form>
-```
-
-Once this form is submitted, by default, the data on the server will look like this:
-
-```json
-{
-  "car[make]"  : "value",
-  "car[model]" : "value"
-}
-```
-
-...but this is not really convenient, as accessing the data will be a bit complex to parse:
-
-```javascript
-req.body['car[make]']
-```
-
-It would be a bit easier if we could use the data like:
-
-```javascript
-req.body.car.make
-```
+When data is sent to the server via a POST request (from a form, for example), the content of the request is passed [in several pieces](https://stackoverflow.com/questions/34915179/parsing-json-in-express-without-bodyparser), but we want to access it as if it were a JavaScript object.
 
 For this we will use `body-parser`.
 
