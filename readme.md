@@ -205,7 +205,7 @@ Once you get all 7 routes printing their path and method, see if you can return 
 ## BodyParser and handling params/JSON
 <!-- 12:15 10 minutes -->
 
-When data is sent to the server via a POST request (from a form, for example), the content of the request is passed as a string, but we want to access it as if it was a JavaScript object:
+When data is sent to the server via a POST request (from a form, for example), the content of the request is passed as a string, but we want to access it as if it were a JavaScript object:
 
 If we have a form like this:
 
