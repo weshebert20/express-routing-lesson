@@ -2,6 +2,7 @@
 
 <!--WDI3 11:16 -->
 <!--Started this around 11:20 -->
+<!--WDI4 11:35 -->
 
 <!--11:00 5 minutes -->
 <!-- Hook: So for the last couple days we have been doing a delicate dance between the front end and the back end.  Raise your hand if you're ready to put that final puzzle piece in place.-->
@@ -43,6 +44,7 @@
 A **route** is a combination of a path (e.g. `/about`) and HTTP verb (e.g. `GET`) that allows a server to direct (route) a certain request to a certain response.
 
 ## Adding Routes to our app 
+<!--11:40 WDI4 -->
 <!-- WDI3 11:20 -->
 <!-- 11:05 10 minutes --> 
 
@@ -92,13 +94,19 @@ Here are the steps to refactor our routes to a new file:
 
 1. Create the new file
 2. Move the routes(.get, .post, etc) to the new file
+<!--11:46 WDI4 -->
 <!--Good stop point-->
+<!--11:49 WDI4 -->
 3. Use the Router constructor
 4. Export the router
 5. Require the router from the file that runs the main app
+<!--11:54 WDI4 -->
 <!--Good stop point-->
+<!--11:57 WDI4 -->
+<!--12:02 WDI4 -->
 6. If all the routes share a portion of the endpoint path, e.g. (cars, tacos, candies), remove that path name but remember it
 7. `app.use` the router with the path prefix you removed in step 3
+<!-- WDI4 12:09-->
 
 More information on some of the steps below:
 
@@ -184,6 +192,7 @@ DELETE /cars/:id
 
 ### Independent Practice
 
+<!--WDI4 started at 12:20, came back to finish after lunch -->
 <!--11:45 25 minutes -->
 
 Create a new file called `bikeRouter.js`.  Inside that file, create the 7 Restful Routes for the resource "bicycle". Every method should `res.send` some text saying the HTTP Verb, which URI has been used to do the request and which RESTful route it corresponds to.
