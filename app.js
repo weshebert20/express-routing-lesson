@@ -1,11 +1,22 @@
-const express = require('express');
-const app     = express();
-const port    = process.env.PORT || 3000;
-const myRouter = require('./routes.js');
-const carRouter = require('./carRoutes.js');
+var express = require('express');
+var app     = express();
+var port    = process.env.PORT || 3000;
 
-app.use('/api', myRouter);
-app.use('/cars', carRouter);
+app.get('/api/parsetime', function(req, res) {
+  time = new Date();
+  result = {
+    hour: time.getHours(),  
+    minute: time.getMinutes(),  
+    second: time.getSeconds()  
+  };
 
+  res.send(result);
+});
+
+app.get('/api/unixtime', function(req, res) {
+  time = new Date();
+
+  res.send({ unixtime : time.getTime() });
+});
 
 app.listen(port);
